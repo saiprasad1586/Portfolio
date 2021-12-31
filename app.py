@@ -1,4 +1,5 @@
 from flask import Flask,redirect,url_for,render_template,request
+import flask
 from flask_cors import CORS,cross_origin
 import pymongo as pmb
 import datetime
@@ -20,7 +21,7 @@ def home():
 
 @app.route('/static/Resume.pdf',methods=['GET','POST'])
 def downnload():
-    return send_from_directory(directory=static, filename='Resume.pdf')
+    return flask.send_from_directory(directory=static, filename='Resume.pdf')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
