@@ -18,6 +18,10 @@ def home():
     db.ipaddr.insert_one({"timeStamp": datetime.datetime.now(),"ip_Address":ip_address})
     return render_template('index.html')
 
+@app.route('/static/Resume.pdf',methods=['GET','POST'])
+def downnload():
+    return send_from_directory(directory=static, filename='Resume.pdf')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
