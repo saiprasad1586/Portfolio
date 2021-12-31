@@ -20,6 +20,7 @@ def home():
     return render_template('index.html')
 
 @app.route('/static/Resume.pdf',methods=['GET','POST'])
+@cross_origin()
 def downnload():
     return flask.send_from_directory(directory=static, filename='Resume.pdf')
 
