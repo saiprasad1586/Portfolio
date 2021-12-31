@@ -22,9 +22,10 @@ def home():
 @app.route('/static/Resume.pdf',methods=['GET','POST'])
 @cross_origin()
 def downnload():
-    return flask.send_from_directory(directory=static, filename='Resume.pdf')
+    return flask.send_from_directory(directory="static",    filename='Resume.pdf')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
+    #app.run()
     app.run(host='0.0.0.0', port=port)
     # 
